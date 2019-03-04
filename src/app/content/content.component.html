@@ -1,0 +1,37 @@
+<section id="intro">
+  <div class="content"></div>
+  <h1>
+    {{ title }}
+  </h1>
+  <ul class="inline">
+    <li><a href="#media" mat-button>Video & Photos</a></li>
+    <li><a href="#thanks" mat-button>Special Thanks</a></li>
+    <li><a href="#vendors" mat-button>Vendors</a></li>
+  </ul>
+</section>
+<section id="media">
+  <h2>Video & Photos</h2>
+  <div>
+    <a href="#" mat-icon-button color="accent">
+      <mat-icon>play_arrow</mat-icon>
+    </a>
+    <a href="#" mat-icon-button color="primary">
+      <mat-icon>photo_library</mat-icon>
+    </a>
+  </div>
+</section>
+<section id="thanks">
+  <h2>Special thanks to:</h2>
+  <ul>
+    <li *ngFor="let name of specialPeople">{{ name }}</li>
+  </ul>
+</section>
+<section id="vendors">
+  <h2>Vendors</h2>
+  <ul>
+    <li *ngFor="let vendor of vendors">
+      <h5>{{ vendor.type }}</h5>
+      <span><a [href]="vendor.url" target="_blank">{{ vendor.name }}</a></span>
+    </li>
+  </ul>
+</section>
