@@ -5,25 +5,31 @@
   </h1>
   <ul class="inline">
     <li><a href="#media" mat-button>Video & Photos</a></li>
-    <li><a href="#thanks" mat-button>Special Thanks</a></li>
+    <li><a href="#thanks" mat-button color="accent">Special Thanks</a></li>
     <li><a href="#vendors" mat-button>Vendors</a></li>
   </ul>
 </section>
 <section id="media">
   <h2>Video & Photos</h2>
-  <div>
-    <a href="#" mat-icon-button color="accent">
-      <mat-icon>play_arrow</mat-icon>
-    </a>
-    <a href="#" mat-icon-button color="primary">
-      <mat-icon>photo_library</mat-icon>
-    </a>
-  </div>
+  <mat-grid-list cols="2" rowHeight="200" [gutterSize]="'10px'">
+    <mat-grid-tile matRipple (click)="goTo('https://youtu.be/5ZPJw0Vg-qA')">
+      <div>
+        <mat-icon>play_arrow</mat-icon>
+        <h4>Video Same-day Edit</h4>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile matRipple (click)="goTo('https://photos.app.goo.gl/ZGxVncQz8pgGbFvu8')">
+      <div>
+        <mat-icon>camera</mat-icon>
+        <h4>Photo Album</h4>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
 </section>
 <section id="thanks">
   <h2>Special thanks to:</h2>
   <ul>
-    <li *ngFor="let name of specialPeople">{{ name }}</li>
+    <li *ngFor="let name of getNameList()">{{ name }}</li>
   </ul>
 </section>
 <section id="vendors">
@@ -35,3 +41,8 @@
     </li>
   </ul>
 </section>
+<div class="fab" [@showHide]="show ? 'show' : 'hide'">
+  <a mat-mini-fab color="secondary" href="#">
+    <mat-icon aria-label="Back to top">expand_less</mat-icon>
+  </a>
+</div>
