@@ -69,7 +69,9 @@ export class ContentComponent {
     { type: 'Venue', name: 'Mövenpick Hotel Mactan Island Cebu', url: 'https://www.facebook.com/movenpickcebu/' }
   ]
 
-  getNameList() {
+  getNameList = this.NameRandomizer
+
+  get NameRandomizer() {
     return this.specialPeople.sort( () => Math.random() - 0.5) // randomize list
   }
 
